@@ -25,7 +25,7 @@
      die("Connection failed: " . $conn->connect_error);
     }
     if(isset($_POST['email'])){
-    $sql="select points from visitors where email='".$_POST['email']."' and password='".$_POST['password']."'";
+    $sql="select points from visitor where email='".$_POST['email']."' and password='".$_POST['password']."'";
     $result=$conn->query($sql) or die($conn->error);
     $count = mysqli_num_rows($result);
     $row=$result->fetch_row();

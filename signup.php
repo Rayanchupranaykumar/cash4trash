@@ -20,13 +20,13 @@
     if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
     }
-    $sql="select * from visitors where email='".$_POST['email']."'";
+    $sql="select * from visitor where email='".$_POST['email']."'";
     $result=$conn->query($sql) or die($conn->error);
     $count = mysqli_num_rows($result);
     if($count > 0) {
         echo '<script>alert("Email already registered")</script>';
     }else{
-    $sql="insert into visitors values('".$_POST['email']."','".$_POST['pass']."',0)";
+    $sql="insert into visitor values('".$_POST['email']."','".$_POST['pass']."',0)";
     $conn->query($sql) or die($conn->error);
     header("Location: ./login.php");
     exit;
